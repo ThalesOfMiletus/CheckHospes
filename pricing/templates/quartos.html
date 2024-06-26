@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Lista de Quartos</h2>
+  <ul>
+    {% for quarto in quartos %}
+      <li>Tipo do Quarto: {{ quarto.tipo_quarto }} - Preço base: R$ {{ quarto.preco_base }} - {{ quarto.quartos_disponiveis }} disponíveis</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

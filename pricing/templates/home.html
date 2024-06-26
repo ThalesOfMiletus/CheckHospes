@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Check Hospes{% endblock %}
+
+{% block content %}
+  <div class="benefits-section">
+    <h2>Benefícios do Software</h2>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <i class="fas fa-chart-line"></i>
+          <strong>Maximização da Receita:</strong> Ajuste automático das tarifas para otimizar ocupação e receita.
+        </div>
+        <div class="swiper-slide">
+          <i class="fas fa-balance-scale"></i>
+          <strong>Maior Competitividade:</strong> Responda rapidamente às mudanças do mercado e mantenha preços competitivos.
+        </div>
+        <div class="swiper-slide">
+          <i class="fas fa-cogs"></i>
+          <strong>Eficiência Operacional:</strong> Automação de processos de precificação, economizando tempo e recursos.
+        </div>
+        <div class="swiper-slide">
+          <i class="fas fa-smile"></i>
+          <strong>Melhoria da Experiência do Cliente:</strong> Ofertas personalizadas e preços competitivos para atender às necessidades dos hóspedes.
+        </div>
+      </div>
+      <!-- Adiciona os botões de navegação -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <!-- Adiciona os pontos de paginação -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+
+  <div class="subscription-section">
+    <h2>Planos de Assinatura</h2>
+    <div class="planos">
+      <div class="plano">
+        <h3>Mensal</h3>
+        <p>R$ 39,90 / mês</p>
+        <button>Assinar</button>
+      </div>
+      <div class="plano popular">
+        <h3>Semestral</h3>
+        <p>R$ 37,90 / mês</p>
+        <button>Assinar</button>
+      </div>
+      <div class="plano">
+        <h3>Anual</h3>
+        <p>R$ 33,90 / mês</p>
+        <button>Assinar</button>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block extra_css %}
+  <style>
+    .benefits-section {
+      margin-bottom: 40px;
+      color: #fff;
+    }
+    .swiper-container {
+      width: 100%;
+      padding: 20px 0;
+    }
+    .swiper-slide {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      text-align: center;
+      height: 200px; /* Altura para garantir que todos os slides tenham a mesma altura */
+    }
+    .swiper-slide i {
+      font-size: 48px;
+      color: #007bff;
+      margin-bottom: 10px;
+    }
+    .swiper-slide strong {
+      display: block;
+      margin-top: 10px;
+      font-size: 1.2em;
+    }
+    .swiper-slide p {
+      margin-top: 5px;
+      font-size: 1em;
+    }
+    .subscription-section {
+      margin-top: 40px;
+      color: white;
+    }
+    .planos {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+    .plano {
+      border: 1px solid #ddd;
+      padding: 20px;
+      width: 30%;
+      text-align: center;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+      transition: transform 0.3s;
+    }
+    .plano.popular {
+      border: 2px solid #007bff;
+      background-color: #e6f0ff;
+    }
+    .plano:hover {
+      transform: scale(1.05);
+    }
+    .plano h3 {
+      margin-top: 0;
+      font-size: 1.8em;
+      color: #333;
+    }
+    .plano p {
+      font-size: 1.5em;
+      color: #333;
+      margin: 20px 0;
+    }
+    .plano button {
+      padding: 10px 20px;
+      font-size: 1em;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .plano button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+{% endblock %}
+
+{% block extra_js %}
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  </script>
+{% endblock %}

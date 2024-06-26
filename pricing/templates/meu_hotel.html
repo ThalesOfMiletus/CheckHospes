@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Meu Hotel - Check Hospes{% endblock %}
+
+{% block content %}
+  <h2>Meu Hotel</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Salvar</button>
+  </form>
+  {% if hotel %}
+    <p>Hotel cadastrado: {{ hotel.nome }}</p>
+  {% endif %}
+{% endblock %}

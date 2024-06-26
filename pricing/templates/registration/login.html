@@ -1,0 +1,26 @@
+{% extends 'base_login.html' %}
+{% load static %}
+{% block content %}
+<div class="login-container">
+    <div class="login-box">
+        
+        <form method="post">
+            {% csrf_token %}
+            <img src="{% static 'img/logo.png' %}" alt="Check Hospes Logo" class="logo">
+            <div class="form-group">
+                <label for="id_username">Email</label>
+                <input type="text" name="username" id="id_username" required>
+            </div>
+            <div class="form-group">
+                <label for="id_password">Senha</label>
+                <input type="password" name="password" id="id_password" required>
+            </div>
+            <div class="form-group">
+                <a href="#" class="forgot-password">Recuperar senha</a>
+            </div>
+            <button type="submit" class="login-button">Login</button>
+        </form>
+        <p class="signup-link">Ainda não tem uma conta? <a href="#">Cadastre-se</a></p>
+    </div>
+</div>
+{% endblock %}

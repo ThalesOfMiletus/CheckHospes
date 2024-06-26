@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Check Hospes{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-left">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'img/logo.png' %}" alt="Check Hospes Logo" class="logo">
+                </a>
+            </div>
+            <div class="nav-center">
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'meu_hotel' %}">Meu Hotel</a></li>
+                        <li><a href="{% url 'adicionar_quarto' %}">Adicionar Tipo de Quarto</a></li>
+                        <li><a href="{% url 'quartos' %}">Quartos</a></li>
+                        <li><a href="{% url 'visualizar_calendario' %}">Calendário</a></li>
+                        
+                    {% endif %}
+                </ul>
+            </div>
+            <div class="nav-right">
+                <ul>
+                    {% if user.is_authenticated %}
+                        <li>Olá, {{ user.get_full_name }}</li>
+                        <li>
+                            <form id="logout-form" action="{% url 'logout' %}" method="post" style="display: inline;">
+                                {% csrf_token %}
+                                <button type="submit" style="background:none; border:none; color:white; cursor:pointer; font-size:inherit;">Logout</button>
+                            </form>
+                        </li>
+                    {% else %}
+                        <li><a href="{% url 'login' %}">Login</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="conteudo">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Check Hospes. Todos os direitos reservados.</p>
+    </footer>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
