@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from .predicao import ajustar_preco
+
 
 class Hotel(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -24,9 +24,6 @@ class TipoQuarto(models.Model):
     
     class Meta:
         verbose_name_plural = 'Tipos de quartos'
-
-    def ajustar_preco(self, data):
-        return ajustar_preco(self, data)
 
 class AjustePreco(models.Model):
     tipo_quarto = models.ForeignKey(TipoQuarto, on_delete=models.CASCADE)

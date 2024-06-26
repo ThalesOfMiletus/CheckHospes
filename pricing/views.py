@@ -29,7 +29,6 @@ def meu_hotel(request):
 @login_required
 def visualizar_calendario(request):
     hotel = Hotel.objects.get(user=request.user)
-    # precos = prever_precos_proximo_mes(hotel)
     return render(request, 'calendario.html')
 
 @login_required

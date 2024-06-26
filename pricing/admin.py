@@ -2,6 +2,7 @@
 
 from django.contrib import admin
 from .models import Hotel, TipoQuarto, AjustePreco
+from .utils import *
 
 class HotelAdmin(admin.ModelAdmin):
     list_display = ('nome', 'localizacao', 'user')
